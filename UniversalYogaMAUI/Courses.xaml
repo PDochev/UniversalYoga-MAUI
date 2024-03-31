@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniversalYogaMAUI.Courses"
+             Title="Yoga Courses"
+             BackgroundColor="#efcac1">
+    
+       
+      
+    <ScrollView>
+
+        <VerticalStackLayout>
+            <Label 
+                Text="Yoga Courses"
+                FontAttributes="Bold"
+                FontSize="28"
+                Margin="0,20,0,10"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+             <Entry x:Name="Search" Placeholder="Search by day of the week" TextChanged="Search_TextChanged" Margin="10" PlaceholderColor="Gray" />
+
+            <CollectionView x:Name="collectionCourses" SelectionMode="Single" SelectionChanged="collectionCourses_SelectionChanged" VerticalOptions="FillAndExpand" EmptyView="No Data Available">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            <Border Margin="10" BackgroundColor="#FFFAF4" Padding="20" Stroke="Gray" StrokeShape="RoundRectangle 10,10,10,10" >
+                            <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"></VisualState>
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#fefae0"></Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Padding="10" WidthRequest="300" HeightRequest="250" HorizontalOptions="Start">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                      
+                            <Label Margin="0,0,10,0" Padding="0,0,0,5" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"  Text="Day of the Week:"  VerticalOptions="Start"/>
+                            <Label Grid.Row="1" Padding="0,0,0,5"  Grid.Column="0" Text="Time of class:" FontAttributes="Bold"  VerticalOptions="Start"/>
+                            <Label Grid.Row="2" Padding="0,0,0,5"  Grid.Column="0" Text="Price per class:" FontAttributes="Bold" VerticalOptions="Start"/>
+                            <Label Grid.Row="3" Padding="0,0,0,5" Grid.Column="0" Text="Capacity" FontAttributes="Bold" VerticalOptions="Start"/>
+                            <Label Grid.Row="4" Padding="0,0,0,5" Grid.Column="0" Text="Duration:" FontAttributes="Bold" VerticalOptions="Start"/>
+                            <Label Grid.Row="5" Padding="0,0,0,5" Grid.Column="0" Text="Type of class:" FontAttributes="Bold" VerticalOptions="Start"/>
+                            <Label Grid.Row="6" Padding="0,0,0,5" Grid.Column="0" Text="Level:"  FontAttributes="Bold" VerticalOptions="Start"/>
+                            <Label Grid.Row="7"  Grid.Column="0" Text="Description:" FontAttributes="Bold"  VerticalOptions="Start"/>
+                       
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding dayOfWeek}" VerticalOptions="Start"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding timeOfCourse}"   VerticalOptions="Start"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding price}"  VerticalOptions="Start"/>
+                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding capacity}"  VerticalOptions="Start"/>
+                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding duration}"  VerticalOptions="Start"/>
+                            <Label Grid.Row="5" Grid.Column="1" Text="{Binding type}"  VerticalOptions="Start"/>
+                            <Label Grid.Row="6" Grid.Column="1" Text="{Binding level}" VerticalOptions="Start" />
+                            <Label Grid.Row="7" Grid.Column="1" Text="{Binding description}"  VerticalOptions="Start"/>
+                        </Grid>
+                         </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

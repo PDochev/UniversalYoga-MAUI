@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniversalYogaMAUI.MainPage"
+             BackgroundColor="#efcac1">
+
+    <Grid>
+        <Image Source="bg_img.png"
+               Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        <Grid VerticalOptions="Start">
+            <Label Text="Universal Yoga"
+                   SemanticProperties.HeadingLevel="Level1"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   Margin="0,50,0,0" />
+
+            <ScrollView VerticalOptions="FillAndExpand">
+                <VerticalStackLayout Spacing="25"
+                                     Padding="30,0"
+                                     VerticalOptions="End">
+
+                    <Label Text="Welcome to Universal Yoga! Check one of our yoga courses!"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Welcome to Universal Yoga"
+                           FontSize="20"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <Button x:Name="ViewCourses"
+                            Text="View Courses"
+                            TextColor="White"
+                            BorderColor="Black"
+                            BorderWidth="1.2"
+                            WidthRequest="200"
+                            CornerRadius="20"
+                            FontAttributes="Bold"
+                            Margin="20"
+                            Padding="15"
+                            BackgroundColor="#728a94"
+                            SemanticProperties.Hint="Lead to second page - Courses"
+                            Clicked="viewCourses"
+                            HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniversalYogaMAUI.Classes"
+             BackgroundColor="#efcac1"
+             Title="Yoga Classes">
+
+  <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+                Text="Yoga Classes"
+                FontAttributes="Bold"
+                FontSize="28"
+                Margin="0,20,0,10"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry x:Name="Search" Placeholder="Search by date" TextChanged="Search_TextChanged" Margin="10" PlaceholderColor="Gray" />
+
+            <CollectionView x:Name="collectionClasses" SelectionMode="Single" SelectionChanged="collectionClasses_SelectionChanged" VerticalOptions="FillAndExpand" EmptyView="No Data Available">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="10" BackgroundColor="#FFFAF4" Padding="10" Stroke="Gray" StrokeShape="RoundRectangle 10,10,10,10"  >
+                             <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal"></VisualState>
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#fefae0"></Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/> 
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Margin="0,0,30,0" Padding="0,0,0,5" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Text="Teacher:"  VerticalOptions="Start"/>
+                            <Label Grid.Row="1" Padding="0,0,0,5" Grid.Column="0" Text="Date:"  FontAttributes="Bold"  VerticalOptions="Start"/>
+                            <Label Grid.Row="2" Padding="0,0,0,5" Grid.Column="0" Text="Comments:" FontAttributes="Bold" VerticalOptions="Start"/>
+                            <!--<Label Grid.Row="3" Grid.Column="0" Text="ID_COURSE:"  VerticalOptions="Start"/>-->
+                            
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding teacher}"  VerticalOptions="Start"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding date}"  VerticalOptions="Start"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding comments}"  VerticalOptions="Start"/>
+                            <!--<Label Grid.Row="3" Grid.Column="1" Text="{Binding id_course}" FontAttributes="Bold" VerticalOptions="Start"/>-->
+                                     <Image
+                Source="yoga_class.png"
+                Grid.Row="2"
+                Grid.Column="2"
+                Margin="30,-70,0,0"
+                SemanticProperties.Description="A woman doing yoga"
+                HeightRequest="100"
+                WidthRequest="100"
+                 />
+                        </Grid>
+                           </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
